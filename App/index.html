@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' 'unsafe-inline'"
+    />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Z-Factor || Predict Gas Compressibility Factor</title>
+</head>
+<body>
+    <main>
+        <div class="content show row">
+            <div class="col s6 switch">
+                <h5 class="darken-4">Gas Compressibility Factor Predictive Tool</h5>
+                <blockquote class="darken-1">
+                    <small>This software perfectly mimicks the Standing and Katz 
+                    chart and is valid for:
+                     <div class="key">
+                        <span><strong>Tpr: </strong>Between 1.05 and 3</span>
+                        <span><strong>Ppr: </strong>Between 0.1 and 8</span>
+                     </div>
+                    </small>
+                    <h6>Segun Omobolanle</h6>
+                </blockquote>
+            </div>
+            <div class="col s6 long">
+                <strong>Enter values below with decimals</strong>
+                <form>
+                    <div class="input-field">
+                        <input 
+                        class='stretch' 
+                        id="tpr" 
+                        type="number" 
+                        required 
+                        min="1.0500" 
+                        max="3.0000"
+                        step="0.000000000001"
+                        onchange="(function(el){el.value=parseFloat(el.value).toFixed(4);})(this)"
+                        >
+                        <label for="Pseudo-reduced Temperature">
+                            <strong>Tpr: </strong>Pseudo-reduced Temperature
+                        </label>
+                        
+                    </div>
+                    <div class="input-field">
+                        <input 
+                        class="stretch" 
+                        id="ppr" 
+                        type="number" 
+                        required 
+                        min="0.1000" 
+                        max="8.0000"
+                        step="0.00000000001"
+                        onchange="(function(el){el.value=parseFloat(el.value).toFixed(4);})(this)"
+                        >
+                        <label for="Pseudo-reduced Pressure">
+                            <strong>Ppr: </strong>Pseudo-reduced Pressure
+                        </label>
+                    </div>
+                    <div>Gas Compressilbilty Factor:
+                        <p id="scale-demo" class="result scale-transition scale-out"></p>
+                    </div>
+                    <button class="btn-large waves-effect waves-light" type="submit">Calculate
+                        <i class="fas fa-tachometer-alt left"></i>
+                      </button>
+                </form>
+            </div>
+           
+        </div>  
+    </main>
+    
+
+
+    <script src="./js/materialize.min.js"></script>
+    <script src="./js/renderer.js"></script>
+    <script src="./js/state.js"></script>
+</body>
+</html>
